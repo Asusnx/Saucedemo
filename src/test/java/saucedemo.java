@@ -393,9 +393,82 @@ public class saucedemo {
         String name05 = textas05.getText();
         WebElement textas06 = _globalDriver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div[1]/div[8]/div[2]/a/div"));
         String name06 = textas06.getText();
-        String name0 = (name01 + name02 + name03 + name04 + name05+ name06);
+        String name0 = (name01 + name02 + name03 + name04 + name05 + name06);
 
         Assert.assertEquals((name), (name0));
+    }
+
+    @Test
+    public void TestCase9() {
+        _globalDriver.findElement(By.id("user-name")).sendKeys("standard_user");
+        _globalDriver.findElement(By.id("password")).sendKeys("secret_sauce");
+        WebElement login = _globalDriver.findElement(By.id("login-button"));
+        login.click();
+        WebElement addToCart1 = _globalDriver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
+        addToCart1.click();
+        WebElement addToCart2 = _globalDriver.findElement(By.id("add-to-cart-sauce-labs-bike-light"));
+        addToCart2.click();
+        WebElement addToCart3 = _globalDriver.findElement(By.id("add-to-cart-sauce-labs-bolt-t-shirt"));
+        addToCart3.click();
+        WebElement addToCart4 = _globalDriver.findElement(By.id("add-to-cart-sauce-labs-fleece-jacket"));
+        addToCart4.click();
+        WebElement addToCart5 = _globalDriver.findElement(By.id("add-to-cart-sauce-labs-onesie"));
+        addToCart5.click();
+        WebElement addToCart6 = _globalDriver.findElement(By.id("add-to-cart-test.allthethings()-t-shirt-(red)"));
+        addToCart6.click();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        WebElement textas1 = _globalDriver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[1]/div[2]/div[2]/div"));
+        String price1 = textas1.getText();
+        WebElement textas02 = _globalDriver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[2]/div[2]/div[2]/div"));
+        String price2 = textas02.getText();
+        WebElement textas03 = _globalDriver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[3]/div[2]/div[2]/div"));
+        String price3 = textas03.getText();
+        String allPrice = (price1 + price2 + price3);
+        WebElement removeFromCart1 = _globalDriver.findElement(By.id("remove-sauce-labs-fleece-jacket"));
+        removeFromCart1.click();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        WebElement removeFromCart2 = _globalDriver.findElement(By.id("remove-sauce-labs-onesie"));
+        removeFromCart2.click();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        WebElement removeFromCart3 = _globalDriver.findElement(By.id("remove-test.allthethings()-t-shirt-(red)"));
+        removeFromCart3.click();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        WebElement cart = _globalDriver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[1]/div[3]/a"));
+        cart.click();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        WebElement text1 = _globalDriver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div[1]/div[3]/div[2]/div[2]/div"));
+        String price01 = text1.getText();
+        WebElement text2 = _globalDriver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div[1]/div[4]/div[2]/div[2]/div"));
+        String price02 = text2.getText();
+        WebElement text3 = _globalDriver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div[1]/div[5]/div[2]/div[2]/div"));
+        String price03 = text3.getText();
+        String allPrice1 = (price01 + price02 + price03);
+        Assert.assertEquals(allPrice,allPrice1);
+
+
+
+
+
     }
 
     public static String generateRandomEmail() {
